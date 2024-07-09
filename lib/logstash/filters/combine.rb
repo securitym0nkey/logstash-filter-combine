@@ -23,6 +23,7 @@ class LogStash::Filters::Combine < LogStash::Filters::Base
   config :sources, :validate => :array
   config :target, :validate => :string
   config :remove_sources, :validate => :boolean, :default => false
+  config :keep_target, :validate => :boolean, :default => false
 
   public
   def register
@@ -32,7 +33,8 @@ class LogStash::Filters::Combine < LogStash::Filters::Base
   public
   def filter(event)
 
-    arr = []
+    arr = event.get(@target) if @keep_target
+    arr = [] if arr.nil?
 
     @sources.each do |field|
       data = event.get(field)
