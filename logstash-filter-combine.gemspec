@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name          = 'logstash-filter-combine'
-  s.version       = '0.1.0'
+  s.version       = '0.1.1'
   s.licenses      = ['MIT']
   s.summary       = 'Logstash Filter Plugin to combine fields into an array'
   s.description   = 'A logstash filter for combining multiple source fields into a target array.'
